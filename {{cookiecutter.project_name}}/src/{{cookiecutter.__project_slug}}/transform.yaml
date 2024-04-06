@@ -1,0 +1,25 @@
+# Config file for transforming data from a source
+# Uncomment and edit the fields you want to include in the config
+
+name: name of the source, formatted as `source_ingest`
+files: 
+  - list of files to process
+# file_archive - optional path to a file archive containing files to process
+# format - format of the data file(s), csv, json, jsonl, or yaml
+# sssom_config: SSSOMConfig (optional) - SSSOM config options
+# columns: List[str] (optional) - list of columns to include
+# field_type_map: dict (optional) - dict of field names and their type (using the FieldType enum)
+# filters: List[ColumnFilter] (optional) - list of filters to apply
+# required_properties: List[str] (optional) - list of properties which must be in json data files
+# metadata: DatasetDescription (optional) - metadata for the source
+# delimiter: str (optional) - delimiter for csv files
+# header: int (optional) - header row index
+# header_delimiter: str (optional) - delimiter for header in csv files
+# header_prefix: str (optional) - prefix for header in csv files
+# comment_char: str (optional) - comment character for csv files
+# skip_blank_lines: bool (optional) - skip blank lines in csv files
+# json_path: List[str] (optional) - path within JSON object containing data to process
+# transform_code: str (optional) - path to a python file to transform the data
+# transform_mode: TransformMode (optional) - how to process the transform file
+# global_table: str (optional) - path to a global table file
+# local_table: str (optional) - path to a local table file

@@ -1,0 +1,12 @@
+# Metadata for the project
+# Uncomment and edit the fields you want to include in the metadata
+
+# id:  'CURIE for the project'
+# name: 'Name of ingest'
+# ingest_title: {{cookiecutter.project_name}}
+# ingest_url: {{cookiecutter.project_url}}
+# description: {{cookiecutter.project_description}}
+# source: {{cookiecutter.source}}
+# provided_by: {{cookiecutter.provided_by}}
+# license: 'Link to license'
+# rights: 'Link to rights' 
