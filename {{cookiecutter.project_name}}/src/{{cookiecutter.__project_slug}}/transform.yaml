@@ -1,11 +1,13 @@
 # Config file for transforming data from a source
-# Uncomment and edit the fields you want to include in the config
+# The 
+# See additional/optional config parameters at https://koza.monarchinitiative.org/Ingests/source_config/
 
-name: name of the source, formatted as `source_ingest`
+
+name: {{cookiecutter.ingest_name}}
 files: 
-  - list of files to process
-# file_archive - optional path to a file archive containing files to process
-# format - format of the data file(s), csv, json, jsonl, or yaml
+  - 'list of files to process'
+format: 'format of the data file(s) - csv, json, jsonl, or yaml'
+# file_archive: optional path to a file archive containing files to process
 # sssom_config: SSSOMConfig (optional) - SSSOM config options
 # columns: List[str] (optional) - list of columns to include
 # field_type_map: dict (optional) - dict of field names and their type (using the FieldType enum)

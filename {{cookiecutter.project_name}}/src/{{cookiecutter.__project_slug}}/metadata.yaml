@@ -1,5 +1,6 @@
 # Metadata for the project
 # Uncomment and edit the fields you want to include in the metadata
+# See metadata properties at https://koza.monarchinitiative.org/Ingests/source_config/
 
 # id:  'CURIE for the project'
 # name: 'Name of ingest'
