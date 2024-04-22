@@ -18,8 +18,9 @@ def callback(version: bool = typer.Option(False, "--version", is_eager=True),
         typer.echo(f"{{cookiecutter.project_name}} version: {__version__}")
         raise typer.Exit()
 
+
 @app.command()
-def main(
+def transform(
     output_dir: str = typer.Option("output", help="Output directory for transformed data"),
     row_limit: int = typer.Option(None, help="Number of rows to process"),
     verbose: int = typer.Option(False, help="Whether to be verbose"),
@@ -35,4 +36,4 @@ def main(
 
 
 if __name__ == "__main__":
-    main()
+    app()

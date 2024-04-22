@@ -1,6 +1,6 @@
 {
   "github_org_name": "monarch-initiative",
-  "project_name": "Your_Project_Name",
+  "project_name": "Your Project Name",
   "project_description": "This is the project description.",
   "project_url": "",
   "__project_slug": "{{ cookiecutter.project_name|lower()|replace(' ', '_')|replace('-', '_') }}",
