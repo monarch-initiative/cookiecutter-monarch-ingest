@@ -1,11 +1,11 @@
 # Config file for transforming data from a source
 # See additional/optional config parameters at https://koza.monarchinitiative.org/Ingests/source_config/
 
-name: { { cookiecutter.__ingest_name } }
+name: "{{ cookiecutter.__ingest_name }}"
 metadata: "./src/{{cookiecutter.__project_slug}}/metadata.yaml"
-format: "format of the data file(s) (csv, json, jsonl, or yaml)"
+format: "csv" # Format of the data files (csv or json) 
 files:
-  - "list of files to process"
+  - "./data/example_data.tsv"
 #################################################################################################
 ### file_archive is optional, but required if:                                                ###
 ### 1. files is not provided                                                                  ###
