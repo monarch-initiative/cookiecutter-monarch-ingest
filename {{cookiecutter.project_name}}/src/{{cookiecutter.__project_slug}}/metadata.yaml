@@ -4,7 +4,7 @@
 
 id:  'CURIE for the project'
 name: '{{cookiecutter.__ingest_name}}'
-ingest_title: '{{cookiecutter.project_name}}'
+ingest_title: '{{cookiecutter.__project_slug}}'
 ingest_url: '{{cookiecutter.project_url}}'
 description: '{{cookiecutter.project_description}}'
 # source: 'Possibly replaced by provided_by'
