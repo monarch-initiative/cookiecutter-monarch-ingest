@@ -7,7 +7,7 @@
 
     "ingest_source": "data_source",
     "ingest_type": "type_of_ingest",
-    "ingest_name": "{{ cookiecutter.ingest_source }}_{{ cookiecutter.ingest_type }}",
+    "__ingest_name": "{{ cookiecutter.ingest_source }}_{{ cookiecutter.ingest_type }}",
 
     "min_python_version": "3.10",
     "full_name": "Author 1",

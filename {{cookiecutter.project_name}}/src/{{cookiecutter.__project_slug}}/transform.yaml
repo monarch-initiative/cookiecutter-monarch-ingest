@@ -3,7 +3,7 @@
 # See additional/optional config parameters at https://koza.monarchinitiative.org/Ingests/source_config/
 
 
-name: {{cookiecutter.ingest_name}}
+name: {{cookiecutter.__ingest_name}}
 files: 
   - 'list of files to process'
 format: 'format of the data file(s) - csv, json, jsonl, or yaml'

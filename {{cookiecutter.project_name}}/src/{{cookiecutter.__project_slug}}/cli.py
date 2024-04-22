@@ -2,42 +2,28 @@
 import logging
 
 import click
-
-from {{cookiecutter.__project_slug}} import __version__
-from {{cookiecutter.__project_slug}}.{{cookiecutter.file_name}} import demo
-
-__all__ = [
-    "main",
-]
+from koza.cli_runner import transform_source
 
 logger = logging.getLogger(__name__)
 
 
-@click.group()
-@click.option("-v", "--verbose", count=True)
-@click.option("-q", "--quiet")
-@click.version_option(__version__)
-def main(verbose: int, quiet: bool):
-    """
-    CLI for {{cookiecutter.project_name}}.
-
-    :param verbose: Verbosity while running.
-    :param quiet: Boolean to be quiet or verbose.
-    """
-    if verbose >= 2:
-        logger.setLevel(level=logging.DEBUG)
-    elif verbose == 1:
-        logger.setLevel(level=logging.INFO)
-    else:
-        logger.setLevel(level=logging.WARNING)
-    if quiet:
-        logger.setLevel(level=logging.ERROR)
-
-
-@main.command()
-def run():
-    """Run the {{cookiecutter.project_name}}'s demo command."""
-    demo()
+@click.command()
+@click.option("-o", "--output-dir", default="output", help="Output directory for transformed data")
+@click.option("-r", "--row-limit", default=None, help="Number of rows to process")
+@click.option("-v", "--verbose", default=False, help="Whether to be verbose")
+def main(
+    output_dir: str,
+    row_limit: int,
+    verbose: int
+):
+    """Run the Koza transform for {{cookiecutter.project_name}}"""
+    transform_source(
+        source='transform.py',
+        output_dir=output_dir,
+        output_format="tsv",
+        row_limit=row_limit,
+        verbose=verbose,
+    )
 
 
 if __name__ == "__main__":
