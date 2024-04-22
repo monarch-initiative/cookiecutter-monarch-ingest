@@ -8,4 +8,5 @@ koza_app = get_koza_app("{{cookiecutter.__ingest_name}}")
 
 while (row := koza_app.get_row()) is not None:
     # Code to transform each row of data
+    # For more information, see https://koza.monarchinitiative.org/Ingests/transform
     ...

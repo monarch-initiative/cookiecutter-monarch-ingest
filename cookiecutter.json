@@ -1,17 +1,17 @@
 {
-    "github_org_name": "monarch-initiative",
-    "project_name": "Your_Project_Name",
-    "project_description": "This is the project description.",
-    "project_url": "",
-    "__project_slug": "{{ cookiecutter.project_name|lower()|replace(' ', '_')|replace('-', '_') }}",
+  "github_org_name": "monarch-initiative",
+  "project_name": "Your_Project_Name",
+  "project_description": "This is the project description.",
+  "project_url": "",
+  "__project_slug": "{{ cookiecutter.project_name|lower()|replace(' ', '_')|replace('-', '_') }}",
 
-    "ingest_source": "data_source",
-    "ingest_type": "type_of_ingest",
-    "__ingest_name": "{{ cookiecutter.ingest_source }}_{{ cookiecutter.ingest_type }}",
+  "ingest_source": "data_source",
+  "ingest_type": "type_of_ingest",
+  "__ingest_name": "{{ cookiecutter.ingest_source }}_{{ cookiecutter.ingest_type }}",
 
-    "min_python_version": "3.10",
-    "full_name": "Author 1",
-    "email": "author@org.org",
-    "__author": "{{cookiecutter.full_name}} <{{cookiecutter.email}}>",
-    "license": ["MIT", "BSD-3", "GNU GPL v3.0", "Apache Software License 2.0"]
+  "min_python_version": "3.10",
+  "full_name": "Author 1",
+  "email": "author@org.org",
+  "__author": "{{cookiecutter.full_name}} <{{cookiecutter.email}}>",
+  "license": ["MIT", "BSD-3", "GNU GPL v3.0", "Apache Software License 2.0"]
 }
