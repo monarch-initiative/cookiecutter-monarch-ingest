@@ -16,6 +16,14 @@ poetry install
 
 ## Usage
 
+To run the Koza transform for {{cookiecutter.project_name}}:
+
 ```bash
-poetry run {{cookiecutter.__project_slug}} --help
+poetry run {{cookiecutter.__project_slug}} transform
+```
+
+To see available options:
+
+```bash
+poetry run {{cookiecutter.__project_slug}} transform --help
 ```

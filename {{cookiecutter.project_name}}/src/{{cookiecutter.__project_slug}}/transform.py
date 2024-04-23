@@ -8,10 +8,12 @@ koza_app = get_koza_app("{{cookiecutter.__ingest_name}}")
 while (row := koza_app.get_row()) is not None:
     # Code to transform each row of data
     # For more information, see https://koza.monarchinitiative.org/Ingests/transform
-    entity = {
-        "id": str(uuid.uuid1()),
-        "subject": row["example_column_1"],
-        "predicate": row["example_column_3"],
-        "object": row["example_column_2"],
-    }
+    entity = Association(
+        id=str(uuid.uuid1()),
+        subject=row["example_column_1"],
+        predicate=row["example_column_3"],
+        object=row["example_column_2"],
+        knowledge_level="not_provided",
+        agent_type="not_provided",
+    )
     koza_app.write(entity)

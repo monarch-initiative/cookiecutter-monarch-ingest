@@ -1,6 +1,8 @@
 """Command line interface for {{cookiecutter.project_name}}."""
 import logging
 
+from pathlib import Path
+
 from koza.cli_runner import transform_source
 import typer
 
@@ -26,8 +28,9 @@ def transform(
     verbose: int = typer.Option(False, help="Whether to be verbose"),
 ):
     """Run the Koza transform for {{cookiecutter.project_name}}."""
+    transform_code = Path(__file__).parent / "transform.yaml"
     transform_source(
-        source='transform.py',
+        source=transform_code,
         output_dir=output_dir,
         output_format="tsv",
         row_limit=row_limit,

@@ -24,7 +24,7 @@ black = "^23.10.0"
 ruff = "*"
 
 [tool.poetry.scripts]
-{{cookiecutter.__project_slug}} = "{{cookiecutter.__project_slug}}.cli:main"
+{{cookiecutter.__project_slug}} = "{{cookiecutter.__project_slug}}.cli:app"
 
 [tool.poetry-dynamic-versioning]
 enable = true
