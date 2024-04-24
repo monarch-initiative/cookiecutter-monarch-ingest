@@ -1,6 +1,6 @@
 # cookiecutter-monarch-ingest
 
-A Cruft cookiecutter template for modular Koza ingests. 
+A Cruft cookiecutter template for modular Koza ingests.
 
 ## Getting Started
 
@@ -24,12 +24,22 @@ The project structure is as follows:
 
 ```
 {{cookiecutter.project_name}}
-├── src/{{cookiecutter.project_slug}}
+├── .github/
+│   ├── workflows/
+│   │   ├── deploy-docs.yml
+│   │   ├── test.yml
+|   ├── dependabot.yml
+├── data/example_data.tsv
+├── docs/
+├── src/{{cookiecutter.__project_slug}}
 │   ├── __init__.py
+│   ├── cli.py
+│   ├── metadata.yaml
 │   ├── transform.py
 │   ├── transform.yaml
-│   ├── metadata.yaml
+├── pyproject.toml
+├── CONTRIBUTING.md
+├── LICENSE
 ├── pyproject.toml
 ├── README.md
-├── LICENSE
 ```

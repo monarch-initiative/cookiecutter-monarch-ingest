@@ -1,0 +1,7 @@
+### This file is a YAML configuration that specifies
+### the data to be downloaded and ingested for this project.
+### The configuration is used by `kghub-downloader`.
+### For more information, see https://github.com/monarch-initiative/kghub-downloader
+---
+- url: https://raw.githubusercontent.com/monarch-initiative/koza/main/examples/data/string.tsv
+  local_name: data/string.tsv

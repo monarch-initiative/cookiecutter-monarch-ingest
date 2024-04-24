@@ -10,6 +10,7 @@ readme = "README.md"
 python = "^{{cookiecutter.min_python_version}}"
 importlib-metadata = ">=4.8.0"
 koza = { git = "https://github.com/monarch-initiative/koza", branch = "develop" } # >=0.5.5
+kghub-downloader = ">=0.3.7"
 kgx = ">=2.4.0"
 biolink-model = "^4.2.0"
 

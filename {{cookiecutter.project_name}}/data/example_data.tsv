@@ -1,6 +1,6 @@
 example_column_1	example_column_2	example_column_3
-Column 1, Value 1	Column 3, Value 1	biolink:related_to
-Column 1, Value 2	Column 3, Value 2	biolink:related_to
-Column 1, Value 3	Column 3, Value 3	biolink:related_to
-Column 1, Value 4	Column 3, Value 4	biolink:related_to
-Column 1, Value 5	Column 3, Value 5	biolink:related_to
+entity_1	entity_6	biolink:related_to
+entity_2	entity_7	biolink:related_to
+entity_3	entity_8	biolink:related_to
+entity_4	entity_9	biolink:related_to
+entity_5	entity_10	biolink:related_to
