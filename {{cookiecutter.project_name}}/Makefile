@@ -60,7 +60,7 @@ docs:
 
 .PHONY: test
 test: download
-	$(RUN) pytest src/{{cookiecutter.__project_slug}}/tests
+	$(RUN) pytest tests
 
 
 ### Running ###

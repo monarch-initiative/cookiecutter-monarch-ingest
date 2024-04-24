@@ -1,6 +1,6 @@
 import pytest 
 
-from koza.utils.testing import mock_koza
+from koza.utils.testing_utils import MockKoza
 
 
 SOURCE_NAME = "{{cookiecutter.__ingest_name}}"
@@ -16,11 +16,12 @@ def example_row():
 
 @pytest.fixture
 def mock_transform():
-    return mock_koza(
+    mock_koza = MockKoza(
         SOURCE_NAME,
         iter([example_row]),
         TRANSFORM_SCRIPT,
     )
+    return mock_koza.transform()
 
 def test_example(mock_transform):
     assert len(mock_transform) == 1

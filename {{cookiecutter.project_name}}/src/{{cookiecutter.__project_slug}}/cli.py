@@ -4,7 +4,7 @@ import logging
 from pathlib import Path
 
 from kghub_downloader.download_utils import download_from_yaml
-from koza.cli_runner import transform_source
+from koza.cli_utils import transform_source
 import typer
 
 app = typer.Typer()
