@@ -24,10 +24,14 @@ poetry install
 
 > **Note** that the `make install` command is a convenience wrapper around `poetry install`.
 
-You can test the installation by running:
+Once installed, you can check that everything is working as expected:
 
 ```bash
+# Run the pytest suite
 make test
+# Download the data and run the Koza transform
+make download
+make run
 ```
 
 ## Usage
@@ -65,7 +69,9 @@ poetry run {{cookiecutter.__project_slug}} transform --help
 
 > This project was generated using [monarch-initiative/cookiecutter-monarch-ingest](https://github.com/monarch-initiative/cookiecutter-monarch-ingest).  
 > Keep this project up to date using cruft by occasionally running in the project directory:
-> ```bash  
-> cruft update  
+>
+> ```bash
+> cruft update
 > ```
+>
 > For more information, see the [cruft documentation](https://cruft.github.io/cruft/#updating-a-project)

@@ -39,10 +39,14 @@ poetry install
 
 > **Note** that the `make install` command is just a convenience wrapper around `poetry install`.
 
-You can test that everything is working by running:
+Once installed, you can check that everything is working as expected:
 
 ```bash
+# Run the pytest suite
 make test
+# Download the data and run the Koza transform
+make download
+make run
 ```
 
 ## Usage

@@ -20,6 +20,8 @@ define HELP
 │     clobber             Clean up generated files          │
 │                                                           │
 │     install             Poetry install package            │
+│     download            Download data                     │
+│     run                 Run the transform                 │
 │                                                           │
 │     docs                Generate documentation            │
 │                                                           │
