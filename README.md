@@ -37,14 +37,13 @@ make test
 ```
 
 To finish setting up this project:
+
 1. Edit the `download.yaml`, `transform.py`, `transform.yaml`, and `metadata.yaml` files to suit your needs.
-    - For more information, see the [Koza documentation](https://koza.monarchinitiative.org) and [kghub-downloader](https://github.com/monarch-initiative/kghub-downloader).
+   - For more information, see the [Koza documentation](https://koza.monarchinitiative.org) and [kghub-downloader](https://github.com/monarch-initiative/kghub-downloader).
 1. Add any additional dependencies to the `pyproject.toml` file.
 1. Adjust the contents of the `tests` directory to test the functionality of your transform.
-1. Update this `README.md` file with any additional information about the project.  
-1. Add any documentation to the `docs` directory.
-
-
+1. Update this `README.md` file with any additional information about the project.
+1. Add any appropriate documentation to the `docs` directory.
 
 ## Project Structure
 

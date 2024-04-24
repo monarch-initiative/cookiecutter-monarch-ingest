@@ -18,12 +18,13 @@ make test
 ```
 
 To finish setting up this project:
+
 1. Edit the `download.yaml`, `transform.py`, `transform.yaml`, and `metadata.yaml` files to suit your needs.
-    - For more information, see the [Koza documentation](https://koza.monarchinitiative.org) and [kghub-downloader](https://github.com/monarch-initiative/kghub-downloader).
+   - For more information, see the [Koza documentation](https://koza.monarchinitiative.org) and [kghub-downloader](https://github.com/monarch-initiative/kghub-downloader).
 1. Add any additional dependencies to the `pyproject.toml` file.
 1. Adjust the contents of the `tests` directory to test the functionality of your transform.
-1. Update this `README.md` file with any additional information about the project.  
-1. Add any documentation to the `docs` directory.
+1. Update this `README.md` file with any additional information about the project.
+1. Add any appropriate documentation to the `docs` directory.
 
 Once you have completed these steps, you can remove this section from the `README.md` file.
 
@@ -79,7 +80,9 @@ poetry run {{cookiecutter.__project_slug}} transform --help
 
 > This project was generated using [monarch-initiative/cookiecutter-monarch-ingest](https://github.com/monarch-initiative/cookiecutter-monarch-ingest).  
 > Keep this project up to date using cruft by occasionally running in the project directory:
-> ```bash  
-> cruft update  
+>
+> ```bash
+> cruft update
 > ```
+>
 > For more information, see the [cruft documentation](https://cruft.github.io/cruft/#updating-a-project)

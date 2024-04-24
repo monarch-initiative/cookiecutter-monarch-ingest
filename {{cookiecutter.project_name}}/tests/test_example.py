@@ -3,8 +3,8 @@ import pytest
 from koza.utils.testing import mock_koza
 
 
-source_name = "{{cookiecutter.__ingest_name}}"
-script = "./src/{{cookiecutter.__project_slug}}/transform.py"
+SOURCE_NAME = "{{cookiecutter.__ingest_name}}"
+TRANSFORM_SCRIPT = "./src/{{cookiecutter.__project_slug}}/transform.py"
 
 @pytest.fixture
 def example_row():
@@ -14,5 +14,16 @@ def example_row():
         "example_column_3": "biolink:related_to",
     }
 
-def test_example(example_row):
-    
+@pytest.fixture
+def mock_transform():
+    return mock_koza(
+        SOURCE_NAME,
+        iter([example_row]),
+        TRANSFORM_SCRIPT,
+    )
+
+def test_example(mock_transform):
+    assert len(mock_transform) == 1
+    entity = mock_transform[0]
+    assert entity
+    assert entity.example_column_1 == "entity_1"
