@@ -1,10 +1,10 @@
 import pytest 
 
-from koza.utils.testing_utils import MockKoza
+from koza.utils.testing_utils import mock_koza
 
 
-SOURCE_NAME = "{{cookiecutter.__ingest_name}}"
-TRANSFORM_SCRIPT = "./src/{{cookiecutter.__project_slug}}/transform.py"
+SOURCE_NAME = "nasa_electron_interactions"
+TRANSFORM_SCRIPT = "./src/nasa_electron_interactions/transform.py"
 
 @pytest.fixture
 def example_row():
@@ -15,16 +15,15 @@ def example_row():
     }
 
 @pytest.fixture
-def mock_transform():
-    mock_koza = MockKoza(
+def mock_transform(mock_koza, example_row):
+    return mock_koza(
         SOURCE_NAME,
         iter([example_row]),
         TRANSFORM_SCRIPT,
     )
-    return mock_koza.transform()
 
 def test_example(mock_transform):
     assert len(mock_transform) == 1
     entity = mock_transform[0]
     assert entity
-    assert entity.example_column_1 == "entity_1"
+    assert entity.subject == "entity_1"
