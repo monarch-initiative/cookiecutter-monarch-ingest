@@ -3,8 +3,8 @@ import pytest
 from koza.utils.testing_utils import mock_koza
 
 
-SOURCE_NAME = "nasa_electron_interactions"
-TRANSFORM_SCRIPT = "./src/nasa_electron_interactions/transform.py"
+SOURCE_NAME = "{{cookiecutter.__project_slug}}"
+TRANSFORM_SCRIPT = "./src/{{cookiecutter.__project_slug}}/transform.py"
 
 @pytest.fixture
 def example_row():
