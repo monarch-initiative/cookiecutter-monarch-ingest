@@ -17,7 +17,7 @@ make install
 make test
 ```
 
-To finish setting up this project, you should:
+To finish setting up this project:
 1. Edit the `download.yaml`, `transform.py`, `transform.yaml`, and `metadata.yaml` files to suit your needs.
     - For more information, see the [Koza documentation](https://koza.monarchinitiative.org) and [kghub-downloader](https://github.com/monarch-initiative/kghub-downloader).
 1. Add any additional dependencies to the `pyproject.toml` file.
