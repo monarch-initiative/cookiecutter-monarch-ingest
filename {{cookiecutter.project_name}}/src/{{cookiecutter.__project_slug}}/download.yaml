@@ -3,8 +3,5 @@
 ### The configuration is used by `kghub-downloader`.
 ### For more information, see https://github.com/monarch-initiative/kghub-downloader
 ---
-- url: https://raw.githubusercontent.com/monarch-initiative/koza/main/examples/data/string.tsv
-  local_name: data/string.tsv
-
 - url: https://raw.githubusercontent.com/glass-ships/cookiecutter-monarch-ingest/main/data/example_data.tsv
   local_name: data/example_data.tsv
