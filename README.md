@@ -18,7 +18,7 @@ cruft create https://github.com/monarch-initiative/cookiecutter-monarch-ingest.g
 
 This will start an interactive session to fill in the project details.
 
-Once the project is created, you can update the project to the latest version of the template by running:
+Once the project is created, you can keep it up to date by occasionally running the following command in the project directory:
 
 ```bash
 cruft update
