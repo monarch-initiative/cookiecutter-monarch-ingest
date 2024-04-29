@@ -1,5 +1,5 @@
 repo_name: '{{cookiecutter.github_org_name}}/{{cookiecutter.__project_slug}}'
-repo_url: '{{cookiecutter.project_url}}'
+repo_url: '{{cookiecutter.__project_url}}'
 site_name: '{{cookiecutter.project_name}}'
 site_url: 'https://{{cookiecutter.github_org_name}}.github.io/{{cookiecutter.__project_slug}}/'
 

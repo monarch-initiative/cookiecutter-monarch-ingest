@@ -6,7 +6,7 @@ When contributing to this repository, please first discuss the changes you wish 
 
 ### Reporting bugs or making feature requests
 
-To report a bug or suggest a new feature, please go to the [{{cookiecutter.github_org_name}}/{{cookiecutter.__project_slug}} issue tracker]({{cookiecutter.project_url}}/issues), as we consolidate issues there.
+To report a bug or suggest a new feature, please go to the [{{cookiecutter.github_org_name}}/{{cookiecutter.__project_slug}} issue tracker]({{cookiecutter.__project_url}}/issues), as we consolidate issues there.
 
 Please supply enough details to the developers to enable them to verify and troubleshoot your issue:
 

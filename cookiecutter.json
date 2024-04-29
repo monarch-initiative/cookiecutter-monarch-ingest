@@ -2,8 +2,8 @@
   "github_org_name": "monarch-initiative",
   "project_name": "Your Project Name",
   "project_description": "This is the project description.",
-  "project_url": "",
   "__project_slug": "{{ cookiecutter.project_name|lower()|replace(' ', '_')|replace('-', '_') }}",
+  "__project_url": "https://github.com/{{ cookiecutter.github_org_name }}/{{ cookiecutter.__project_slug }}",
 
   "ingest_source": "data_source, ex. alliance, flybase, or hpoa.",
   "ingest_type": "type_of_ingest, ex. gene, disease_to_phenotype, or disease_associations.",
@@ -13,5 +13,5 @@
   "full_name": "Author 1",
   "email": "author@org.org",
   "__author": "{{cookiecutter.full_name}} <{{cookiecutter.email}}>",
-  "license": ["MIT", "BSD-3", "GNU GPL v3.0", "Apache Software License 2.0"]
+  "license": ["BSD-3", "GNU GPL v3.0", "MIT", "Apache Software License 2.0"]
 }
