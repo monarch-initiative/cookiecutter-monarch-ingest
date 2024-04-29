@@ -50,6 +50,9 @@ To finish setting up this project:
 1. Update this `README.md` file with any additional information about the project.
 1. Add any appropriate documentation to the `docs` directory.
 
+> **Note:** After the GitHub Actions for deploying documentation runs, the documentation will be automatically deployed to GitHub Pages.  
+> However, you will need to go to the repository settings and set the GitHub Pages source to the `gh-pages` branch, using the `/docs` directory.
+
 ## Project Structure
 
 Cruft/cookiecutter will create a project with the following structure:

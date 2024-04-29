@@ -19,13 +19,13 @@ make install
 make test
 ```
 
-There are a few additional steps to complete before the project is ready for use. 
+There are a few additional steps to complete before the project is ready for use.
 
 #### GitHub Repository
 
 1. Create a new repository on GitHub.
 1. Enable GitHub Actions to read and write to the repository (required to deploy the project to GitHub Pages).
-   - in GitHub, go to  Settings -> Action -> General -> Workflow permissions and choose read and write permissions
+   - in GitHub, go to Settings -> Action -> General -> Workflow permissions and choose read and write permissions
 1. Initialize the local repository and push the code to GitHub. For example:
 
    ```bash
@@ -47,6 +47,9 @@ There are a few additional steps to complete before the project is ready for use
 
 1. Update this `README.md` file with any additional information about the project.
 1. Add any appropriate documentation to the `docs` directory.
+
+> **Note:** After the GitHub Actions for deploying documentation runs, the documentation will be automatically deployed to GitHub Pages.  
+> However, you will need to go to the repository settings and set the GitHub Pages source to the `gh-pages` branch, using the `/docs` directory.
 
 Once you have completed these steps, you can remove this section from the `README.md` file.
 
