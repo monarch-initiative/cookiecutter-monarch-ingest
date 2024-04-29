@@ -2,6 +2,11 @@
 
 A Cruft cookiecutter template for modular Koza ingests.
 
+This template is designed to help you create a new Koza ingest project. It includes a basic project structure, a Makefile with common tasks, and GitHub Actions workflows for testing and deploying documentation.
+
+> Note: This template assumes you the project will be a GitHub repository (as opposed to GitLab or another CVS platform.  
+> If you are using a different platform, you may need to adjust the GitHub Actions workflows accordingly, along with any instances of `https://github.com/...` urls.)
+
 ## Getting Started
 
 First, install [cruft](https://cruft.github.io/cruft/):
