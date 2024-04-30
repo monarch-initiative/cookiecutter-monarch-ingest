@@ -1,15 +1,17 @@
-name: Auto-Deploy Documentation
+# - Run the transform
+# - Produce RDF? (use kgx)
+# - [Not Yet] QC/Validation (ex. 0 rows)
+# - Create release, upload output files as release artifacts
+
+name: Create Release
 
 on:
-  push:
-    branches: [main]
-
-env:
-  GITHUB_TOKEN: { { "${{ secrets.GITHUB_TOKEN }}" } }
+  workflow_dispatch:
 
 jobs:
-  build-docs:
+  create-release:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,12 +29,7 @@ jobs:
       - name: Install Dependencies
         run: poetry install --no-interaction
 
-      - name: Build Documentation
-        run: make docs
+      - name: Run Transform
+        run: poetry run ingest transform
 
-      - name: Deploy to gh-pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: site
-          target-folder: docs
-          clean: true
+      

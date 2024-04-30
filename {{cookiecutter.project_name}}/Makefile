@@ -69,11 +69,12 @@ test: download
 
 .PHONY: download
 download:
-	$(RUN) {{cookiecutter.__project_slug}} download
+	$(RUN) ingest download
 
 .PHONY: run
 run:
-	$(RUN) {{cookiecutter.__project_slug}} transform
+	$(RUN) ingest transform
+	$(RUN) scripts/generate-report.sh
 
 
 ### Linting, Formatting, and Cleaning ###

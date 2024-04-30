@@ -48,21 +48,21 @@ make help
 To download the data for the {{cookiecutter.__project_slug}} transform:
 
 ```bash
-poetry run {{cookiecutter.__project_slug}} download
+poetry run ingest download
 ```
 
 To run the Koza transform for {{cookiecutter.project_name}}:
 
 ```bash
-poetry run {{cookiecutter.__project_slug}} transform
+poetry run ingest transform
 ```
 
 To see available options:
 
 ```bash
-poetry run {{cookiecutter.__project_slug}} download --help
+poetry run ingest download --help
 # or
-poetry run {{cookiecutter.__project_slug}} transform --help
+poetry run ingest transform --help
 ```
 
 ---

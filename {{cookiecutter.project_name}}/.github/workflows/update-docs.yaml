@@ -1,14 +1,15 @@
-name: Auto-Deploy Documentation
+# This GitHub Action updates the documentation with information about the latest KG build/release.
+
+name: Update Documentation
 
 on:
-  push:
-    branches: [main]
-
-env:
-  GITHUB_TOKEN: { { "${{ secrets.GITHUB_TOKEN }}" } }
+  workflow_run:
+    workflows: ["Create Release"]
+    types:
+      - completed
 
 jobs:
-  build-docs:
+  update-docs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,7 +26,8 @@ jobs:
         uses: snok/install-poetry@v1
 
       - name: Install Dependencies
-        run: poetry install --no-interaction
+        run: |
+          poetry install --no-interaction
 
       - name: Build Documentation
         run: make docs

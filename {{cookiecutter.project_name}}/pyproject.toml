@@ -13,6 +13,7 @@ koza = { git = "https://github.com/monarch-initiative/koza", branch = "develop" 
 kghub-downloader = ">=0.3.8"
 kgx = ">=2.4.0"
 biolink-model = "^4.2.0"
+duckdb = ">=0.10.2"
 
 [tool.poetry.group.dev]
 optional = true
@@ -21,11 +22,11 @@ optional = true
 pytest = ">=8.1.1"
 mkdocs = ">=1.4"
 mkdocs-material = ">=9.5"
-black = "^23.10.0"
+black = "*"
 ruff = "*"
 
 [tool.poetry.scripts]
-{{cookiecutter.__project_slug}} = "{{cookiecutter.__project_slug}}.cli:app"
+ingest = "{{cookiecutter.__project_slug}}.cli:app"
 
 [tool.poetry-dynamic-versioning]
 enable = true
@@ -33,7 +34,7 @@ vcs = "git"
 style = "pep440"
 
 [tool.black]
-line_length = 120
+line-length = 120
 skip-string-normalization = true
 
 [tool.ruff]
