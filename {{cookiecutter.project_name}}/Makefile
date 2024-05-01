@@ -74,7 +74,7 @@ download:
 .PHONY: run
 run:
 	$(RUN) ingest transform
-	$(RUN) scripts/generate-report.sh
+	$(RUN) bash scripts/generate-report.py
 
 
 ### Linting, Formatting, and Cleaning ###

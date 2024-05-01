@@ -37,6 +37,8 @@ theme:
 
 plugins:
   - search
+  - macros:
+      module_name: 'scripts/mkdocs-macros'
   - mkdocstrings:
       handlers:
         python:

@@ -22,6 +22,7 @@ optional = true
 pytest = ">=8.1.1"
 mkdocs = ">=1.4"
 mkdocs-material = ">=9.5"
+mkdocs-macros-plugin = "*"
 black = "*"
 ruff = "*"
 
@@ -39,7 +40,7 @@ skip-string-normalization = true
 
 [tool.ruff]
 line-length = 120
-extend-ignore = [
+ignore = [
     "D100", # `missing-module-docstring`
     "D101", # `missing-function-docstring`
     "D102", # `missing-method-docstring`
