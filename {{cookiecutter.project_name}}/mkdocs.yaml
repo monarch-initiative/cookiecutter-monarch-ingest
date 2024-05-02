@@ -1,7 +1,7 @@
-repo_name: '{{cookiecutter.github_org_name}}/{{cookiecutter.__project_slug}}'
+repo_name: '{{cookiecutter.github_org_name}}/{{cookiecutter.__repo_name}}'
 repo_url: '{{cookiecutter.__project_url}}'
 site_name: '{{cookiecutter.project_name}}'
-site_url: 'https://{{cookiecutter.github_org_name}}.github.io/{{cookiecutter.__project_slug}}/'
+site_url: 'https://{{cookiecutter.github_org_name}}.github.io/{{cookiecutter.__repo_name}}/'
 
 ### Optional: Uncomment the following line to customize the navigation bar
 # nav:
