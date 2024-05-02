@@ -3,15 +3,13 @@ import json
 
 
 def main():
-    url = (
-        "https://api.github.com/repos/{{ cookiecutter.github_org_name }}/{{ cookiecutter.__repo_name }}/releases/latest"
-    )
-
+    url = "https://api.github.com/repos/{{ cookiecutter.github_org_name }}/{{ cookiecutter.__repo_name }}/releases/latest"
+    
     # Get the latest release from the GitHub API
     response = requests.get(url)
     if response.status_code != 200:
         raise Exception(
-            f"\n\tFailed to get latest release from {url}\n\tStatus Code: {response.status_code} - {response.text}"
+            f"\n\tFailed to get latest release from {url}\n\tStatus: {response.status_code} - {response.text}"
         )
     data = json.loads(response.text)
 
@@ -19,7 +17,7 @@ def main():
     reports = {}
     for asset in data["assets"]:
         report_name = asset["name"]
-        if "report" in asset["name"].split("_"):
+        if "report.tsv" in asset["name"].split("_"):
             file_url = asset["browser_download_url"]
             reports[report_name] = file_url
 
@@ -27,11 +25,13 @@ def main():
         raise Exception("No reports found in the latest release")
 
     # Download the reports
-    for fn, url in reports:
+    for fn, url in reports.items():
         response = requests.get(url)
-        output_fn = "_".join(fn.split("_")[:-1])
+        output_fn = "_".join(fn.split("_")[-2:])
         with open(f"docs/{output_fn}", "wb") as f:
             f.write(response.content)
 
 
-print(main())
+if __name__ == "__main__":
+    main()
+
