@@ -72,7 +72,7 @@ download:
 	$(RUN) ingest download
 
 .PHONY: run
-run:
+run: download
 	$(RUN) ingest transform
 	$(RUN) python scripts/generate-report.py
 

@@ -9,7 +9,7 @@
 - Python >= {{cookiecutter.min_python_version}}
 - [Poetry](https://python-poetry.org/docs/#installation)
 
-## Starting a new project
+## Setting Up a New Project
 
 Upon creating a new project from the `cookiecutter-monarch-ingest` template, you can install and test the project:
 
@@ -50,6 +50,18 @@ There are a few additional steps to complete before the project is ready for use
 
 > **Note:** After the GitHub Actions for deploying documentation runs, the documentation will be automatically deployed to GitHub Pages.  
 > However, you will need to go to the repository settings and set the GitHub Pages source to the `gh-pages` branch, using the `/docs` directory.
+
+#### GitHub Actions
+
+This project is set up with several GitHub Actions workflows.  
+You should not need to modify these workflows unless you want to change the behavior.  
+The workflows are located in the `.github/workflows` directory:
+
+- `test.yaml`: Run the pytest suite.
+- `create-release.yaml`: Create a new release once a week, or manually.
+- `deploy-docs.yaml`: Deploy the documentation to GitHub Pages (on pushes to main).
+- `update-docs.yaml`: After a release, update the documentation with node/edge reports.
+
 
 Once you have completed these steps, you can remove this section from the `README.md` file.
 

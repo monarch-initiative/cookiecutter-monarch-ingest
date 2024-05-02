@@ -1,14 +1,11 @@
-# - Run the transform
-# - Produce RDF? (use kgx)
-# - [Not Yet] QC/Validation (ex. 0 rows)
-# - Create release, upload output files as release artifacts
+# TODO QC/Validation (ex. 0 rows)
 
 name: Create Release
 
 on:
   workflow_dispatch:
-  release:
-    types: [published]
+  schedule:
+    - cron: '0 0 * * 0'
 
 jobs:
   create-release:
@@ -33,11 +30,15 @@ jobs:
 
       - name: Run Transform
         run: |
-          poetry run ingest transform
+          make run
           poetry run python scripts/generate-rdf.py
+
+      - name: Get Date for Release Tag
+        run: echo "DATE=$(date +%Y-%m-%d)" >> $GITHUB_ENV
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ env.DATE }}
           files: |
             output/*
