@@ -2,7 +2,6 @@ import requests
 import json
 
 
-# https://github.com/{{ cookiecutter.github_org_name }}/{{ cookiecutter.__project_slug }}/releases/latest/download/report.md
 def get_latest_release_file(user, repo, filename):
     url = f"https://api.github.com/repos/{{ cookiecutter.github_org_name }}/{{ cookiecutter.__project_slug }}/releases/latest"
     response = requests.get(url)
