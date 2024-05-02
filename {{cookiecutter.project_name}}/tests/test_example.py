@@ -13,7 +13,7 @@ import pytest
 from koza.utils.testing_utils import mock_koza
 
 # Define the ingest name and transform script path
-INGEST_NAME = "{{cookiecutter.__project_slug}}"
+INGEST_NAME = "{{cookiecutter.__ingest_name}}"
 TRANSFORM_SCRIPT = "./src/{{cookiecutter.__project_slug}}/transform.py"
 
 
