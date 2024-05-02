@@ -8,6 +8,7 @@ logger.info(f"Creating rdf output: output/{{ cookiecutter.__ingest_name }}.nt.gz
 src_files = []
 src_nodes = f"output/{{ cookiecutter.__ingest_name }}_nodes.tsv"
 src_edges = f"output/{{ cookiecutter.__ingest_name }}_edges.tsv"
+
 if Path(src_nodes).is_file():
     src_files.append(src_nodes)
 if Path(src_edges).is_file():
