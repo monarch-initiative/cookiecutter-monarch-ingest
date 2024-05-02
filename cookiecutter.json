@@ -2,8 +2,9 @@
   "github_org_name": "monarch-initiative",
   "project_name": "Your Project Name",
   "project_description": "This is the project description.",
+  "__repo_name": "{{ cookiecutter.project_name|replace(' ', '-') }}",
   "__project_slug": "{{ cookiecutter.project_name|lower()|replace(' ', '_')|replace('-', '_') }}",
-  "__project_url": "https://github.com/{{ cookiecutter.github_org_name }}/{{ cookiecutter.__project_slug }}",
+  "__project_url": "https://github.com/{{ cookiecutter.github_org_name }}/{{ cookiecutter.__repo_name }}",
 
   "ingest_source": "data_source, ex. alliance, flybase, or hpoa.",
   "ingest_type": "type_of_ingest, ex. gene, disease_to_phenotype, or disease_associations.",
