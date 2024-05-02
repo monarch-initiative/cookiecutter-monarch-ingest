@@ -1,6 +1,6 @@
 # {{cookiecutter.project_name}}
 
-| [Documentation](https://{{cookiecutter.github_org_name}}.github.io/{{cookiecutter.__project_slug}}) |
+| [Documentation](https://{{cookiecutter.github_org_name}}.github.io/{{cookiecutter.__repo_name}}) |
 
 {{cookiecutter.project_description}}
 
