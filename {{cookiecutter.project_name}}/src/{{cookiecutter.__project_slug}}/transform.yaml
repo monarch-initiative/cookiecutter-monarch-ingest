@@ -36,8 +36,8 @@ edge_properties:
 
 ### Optional parameters - uncomment to use, or remove to ignore
 
-min_node_count: 5
-min_edge_count: 10
+min_node_count: 10
+min_edge_count: 5
 # sssom_config: List of SSSOM config options
 # columns: List of columns to include
 # field_type_map: Dict of field names and their type (using the FieldType enum)
