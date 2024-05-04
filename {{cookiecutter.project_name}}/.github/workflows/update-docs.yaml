@@ -30,7 +30,9 @@ jobs:
           poetry install --with dev --no-interaction
 
       - name: Build Documentation
-        run: make docs
+        run: |
+          poetry run python scripts/get-latest-report.py
+          make docs
 
       - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
