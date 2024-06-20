@@ -21,6 +21,7 @@ node_properties:
   - id
   - name
   - category
+
 edge_properties:
   # List of edge properties to include if ingesting edges
   # Remove if not ingesting edges
@@ -39,7 +40,6 @@ edge_properties:
 min_node_count: 10
 min_edge_count: 5
 # sssom_config: List of SSSOM config options
-# columns: List of columns to include
 # field_type_map: Dict of field names and their type (using the FieldType enum)
 # filters: List of filters to apply
 # required_properties: List of properties which must be in json data files
@@ -52,6 +52,7 @@ min_edge_count: 5
 ### CSV specific parameters
 
 delimiter: "\t" # Delimiter for csv files (REQUIRED if format is csv)
+# columns: List of columns to include in output
 # header: Header row index
 # header_delimiter: Delimiter for header in csv files
 # header_prefix: Prefix for header in csv files
