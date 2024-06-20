@@ -8,7 +8,7 @@ ingest_title: '{{cookiecutter.__project_slug}}'
 ingest_url: '{{cookiecutter.__project_url}}'
 description: '{{cookiecutter.project_description}}'
 # source: 'Possibly replaced by provided_by'
-provided_by: '{{cookiecutter.ingest_source}} '
+provided_by: '{{cookiecutter.ingest_source}}'
 # One of license and rights is possibly redundant
 license: 'Link to license'
 rights: 'Link to rights' 
