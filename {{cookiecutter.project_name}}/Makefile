@@ -48,7 +48,7 @@ all: install test
 
 .PHONY: install
 install: 
-	poetry install
+	poetry install --with dev
 
 
 ### Documentation ###
