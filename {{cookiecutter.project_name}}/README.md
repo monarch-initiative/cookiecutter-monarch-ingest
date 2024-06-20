@@ -63,7 +63,7 @@ The workflows are located in the `.github/workflows` directory:
 - `update-docs.yaml`: After a release, update the documentation with node/edge reports.
 
 
-Once you have completed these steps, you can remove this section from the `README.md` file.
+Once you have completed these steps, you can remove the [Setting Up a New Project](#setting-up-a-new-project) section from this `README.md` file.
 
 ## Installation
 
