@@ -4,6 +4,8 @@ import logging
 from pathlib import Path
 
 from kghub_downloader.download_utils import download_from_yaml
+from kghub_downloader.model import DownloadOptions
+
 from koza.cli_utils import transform_source
 import typer
 
@@ -26,7 +28,9 @@ def download(force: bool = typer.Option(False, help="Force download of data, eve
     """Download data for {{cookiecutter.project_name}}."""
     typer.echo("Downloading data for {{cookiecutter.project_name}}...")
     download_config = Path(__file__).parent / "download.yaml"
-    download_from_yaml(yaml_file=download_config, output_dir=".", ignore_cache=force)
+    download_options = DownloadOptions()
+    download_options.ignore_cache = True 
+    download_from_yaml(yaml_file=download_config, output_dir=".", download_options=download_options)
 
 
 @app.command()
