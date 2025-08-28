@@ -1,40 +1,36 @@
-[tool.poetry]
+[project]
 name = "{{cookiecutter.__project_slug}}"
 version = "0.0.0"
 description = "{{cookiecutter.project_description}}"
-authors = ["{{cookiecutter.__author}}"]
-license = "{{cookiecutter.license}}"
+authors = [
+    {name = "{{cookiecutter.full_name}}", email = "{{cookiecutter.email}}"}
+]
+license = {text = "{{cookiecutter.license}}"}
 readme = "README.md"
+requires-python = ">={{cookiecutter.min_python_version}}"
+dependencies = [
+    "importlib-metadata>=4.8.0",
+    "koza>=2.0.0",
+    "kghub-downloader>=0.3.11",
+    "kgx>=2.4.0",
+    "biolink-model>=4.2.0",
+    "duckdb>=0.10.2",
+    "loguru",
+]
 
-[tool.poetry.dependencies]
-python = "^{{cookiecutter.min_python_version}}"
-importlib-metadata = ">=4.8.0"
-koza = ">=0.6.0"
-kghub-downloader = ">=0.3.11"
-kgx = ">=2.4.0"
-biolink-model = "^4.2.0"
-duckdb = ">=0.10.2"
-loguru = "*"
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.1.1",
+    "mkdocs>=1.4",
+    "mkdocstrings[python]>=0.26.2",
+    "mkdocs-material>=9.5",
+    "mkdocs-macros-plugin",
+    "black",
+    "ruff",
+]
 
-[tool.poetry.group.dev]
-optional = true
-
-[tool.poetry.group.dev.dependencies]
-pytest = ">=8.1.1"
-mkdocs = ">=1.4"
-mkdocstrings = { extras=["python"], version=">=0.26.2" }
-mkdocs-material = ">=9.5"
-mkdocs-macros-plugin = "*"
-black = "*"
-ruff = "*"
-
-[tool.poetry.scripts]
+[project.scripts]
 ingest = "{{cookiecutter.__project_slug}}.cli:app"
-
-[tool.poetry-dynamic-versioning]
-enable = true
-vcs = "git"
-style = "pep440"
 
 [tool.black]
 line-length = 120
@@ -75,5 +71,5 @@ quiet-level = 3
 # ignore-words-list = ""
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
-build-backend = "poetry_dynamic_versioning.backend"
+requires = ["hatchling"]
+build-backend = "hatchling.build"

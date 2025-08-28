@@ -2,10 +2,10 @@
 # See additional/optional config parameters at https://koza.monarchinitiative.org/Ingests/source_config/
 
 name: "{{ cookiecutter.__ingest_name }}"
-metadata: "./src/{{cookiecutter.__project_slug}}/metadata.yaml"
+metadata: "./metadata.yaml"
 format: "csv" # Format of the data files (csv or json)
 files:
-  - "./data/example_data.tsv"
+  - "../../data/example_data.tsv"
 #################################################################################################
 ### file_archive is typically optional, but required if:                                      ###
 ###    1. files is not provided                                                               ###

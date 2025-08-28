@@ -1,6 +1,5 @@
 ROOTDIR = $(shell pwd)
-RUN = poetry run
-VERSION = $(shell poetry -C src/{{cookiecutter.__project_slug}} version -s)
+RUN = uv run
 
 ### Help ###
 
@@ -19,7 +18,7 @@ define HELP
 │     clean               Clean up build artifacts          │
 │     clobber             Clean up generated files          │
 │                                                           │
-│     install             Poetry install package            │
+│     install             UV install package                 │
 │     download            Download data                     │
 │     run                 Run the transform                 │
 │                                                           │
@@ -48,7 +47,7 @@ all: install test
 
 .PHONY: install
 install: 
-	poetry install --with dev
+	uv sync --dev
 
 
 ### Documentation ###

@@ -1,13 +1,13 @@
 import uuid  # For generating UUIDs for associations
-
+import koza
 from biolink_model.datamodel.pydanticmodel_v2 import *  # Replace * with any necessary data classes from the Biolink Model
-from koza.cli_utils import get_koza_app
 
-koza_app = get_koza_app("{{cookiecutter.__ingest_name}}")
 
-while (row := koza_app.get_row()) is not None:
+@koza.transform_record()
+def transform_record(koza_transform, row):
     # Code to transform each row of data
     # For more information, see https://koza.monarchinitiative.org/Ingests/transform
+    
     entity_a = Entity(
         id=f"XMPL:00000{row['example_column_1'].split('_')[-1]}",
         name=row["example_column_1"],
@@ -29,4 +29,5 @@ while (row := koza_app.get_row()) is not None:
         knowledge_level="not_provided",
         agent_type="not_provided",
     )
-    koza_app.write(entity_a, entity_b, association)
+    
+    return [entity_a, entity_b, association]

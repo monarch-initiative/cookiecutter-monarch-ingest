@@ -7,7 +7,7 @@
 ## Requirements
 
 - Python >= {{cookiecutter.min_python_version}}
-- [Poetry](https://python-poetry.org/docs/#installation)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
 ## Setting Up a New Project
 
@@ -71,10 +71,10 @@ Once you have completed these steps, you can remove the [Setting Up a New Projec
 cd {{cookiecutter.project_name}}
 make install
 # or
-poetry install
+uv sync --dev
 ```
 
-> **Note** that the `make install` command is just a convenience wrapper around `poetry install`.
+> **Note** that the `make install` command is just a convenience wrapper around `uv sync --dev`.
 
 Once installed, you can check that everything is working as expected:
 
@@ -100,21 +100,21 @@ make help
 Download the data for the {{cookiecutter.__project_slug}} transform:
 
 ```bash
-poetry run {{cookiecutter.__project_slug}} download
+uv run {{cookiecutter.__project_slug}} download
 ```
 
 To run the Koza transform for {{cookiecutter.project_name}}:
 
 ```bash
-poetry run {{cookiecutter.__project_slug}} transform
+uv run {{cookiecutter.__project_slug}} transform
 ```
 
 To see available options:
 
 ```bash
-poetry run {{cookiecutter.__project_slug}} download --help
+uv run {{cookiecutter.__project_slug}} download --help
 # or
-poetry run {{cookiecutter.__project_slug}} transform --help
+uv run {{cookiecutter.__project_slug}} transform --help
 ```
 
 ### Testing
