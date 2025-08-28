@@ -28,7 +28,9 @@ def download(force: bool = typer.Option(False, help="Force download of data, eve
     """Download data for {{cookiecutter.project_name}}."""
     typer.echo("Downloading data for {{cookiecutter.project_name}}...")
     download_config = Path(__file__).parent / "download.yaml"
-    download_from_yaml(yaml_file=download_config, output_dir=".", ignore_cache=force)
+    from kghub_downloader.model import DownloadOptions
+    options = DownloadOptions(ignore_cache=force) if force else None
+    download_from_yaml(yaml_file=str(download_config), output_dir=".", download_options=options)
 
 
 @app.command()
