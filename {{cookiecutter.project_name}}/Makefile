@@ -60,7 +60,7 @@ docs:
 ### Testing ###
 
 .PHONY: test
-test: download
+test:
 	$(RUN) pytest tests
 
 
