@@ -1,0 +1,3 @@
+{%- macro slugify(text) -%}
+{{ text | lower | replace(' ', '-') | replace('_', '-') | regex_replace('[^a-z0-9\-]', '') }}
+{%- endmacro -%}

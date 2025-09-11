@@ -1,24 +1,34 @@
-# cookiecutter-monarch-ingest
+# Cookiecutter Monarch Ingest
 
-A Cruft cookiecutter template for modular Koza ingests.
+A [Copier](https://copier.readthedocs.io/) template for creating Monarch Initiative data ingest projects.
 
-This template is designed to help you create a new Koza ingest project. It includes a basic project structure, a Makefile with common tasks, and GitHub Actions workflows for testing and deploying documentation.
+This template creates projects that use:
+- [Koza](https://koza.monarchinitiative.org) for data transformations
+- [kghub-downloader](https://github.com/monarch-initiative/kghub-downloader) for data downloads
+- [uv](https://docs.astral.sh/uv/) for dependency management
+- [Just](https://just.systems/) for task automation
+- [Ruff](https://github.com/astral-sh/ruff) for Python linting and formatting
 
-> Note: This template assumes you the project will be a GitHub repository (as opposed to GitLab or another CVS platform.  
-> If you are using a different platform, you may need to adjust the GitHub Actions workflows accordingly, along with any instances of `https://github.com/...` urls.)
+## Migration from Cookiecutter + Cruft
+
+This template has been migrated from cookiecutter to copier. Existing projects using cruft can migrate:
+
+1. Remove `.cruft.json` from your project
+2. Run `copier update --trust` to update using the new copier template
+3. Use `copier update` instead of `cruft update` for future updates
 
 ## Getting Started
 
-First, install [cruft](https://cruft.github.io/cruft/):
+First, install [copier](https://copier.readthedocs.io/en/stable/installing/):
 
 ```bash
-pip install cruft
+pip install copier
 ```
 
 Then, create a new project using this template:
 
 ```bash
-cruft create https://github.com/monarch-initiative/cookiecutter-monarch-ingest.git
+copier copy https://github.com/monarch-initiative/cookiecutter-monarch-ingest.git my-ingest-project
 ```
 
 This will start an interactive session to fill in the following project details  
@@ -47,19 +57,19 @@ This will start an interactive session to fill in the following project details
 Once the project is created, you can keep it up to date by occasionally running the following command in the project directory:
 
 ```bash
-cruft update
+copier update
 ```
 
-For more information, see the [cruft documentation](https://cruft.github.io/cruft/#updating-a-project)
+For more information, see the [copier documentation](https://copier.readthedocs.io/en/stable/updating/)
 
 ## Setting Up a New Project
 
 Upon creating a new project from the `cookiecutter-monarch-ingest` template, you can install and test the project:
 
 ```bash
-cd {{cookiecutter.project_name}}
-make install
-make test
+cd my-ingest-project
+just setup
+just test
 ```
 
 There are a few additional steps to complete before the project is ready for use.

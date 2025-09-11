@@ -1,4 +1,4 @@
-"""{{cookiecutter.project_name}} package."""
+"""Data ingest package."""
 import importlib_metadata
 
 try:
