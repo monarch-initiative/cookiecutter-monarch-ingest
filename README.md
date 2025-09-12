@@ -11,11 +11,21 @@ This template creates projects that use:
 
 ## Migration from Cookiecutter + Cruft
 
-This template has been migrated from cookiecutter to copier. Existing projects using cruft can migrate:
+This template has been migrated from cookiecutter to copier. **Existing projects using cruft must migrate** to continue receiving template updates.
 
-1. Remove `.cruft.json` from your project
-2. Run `copier update --trust` to update using the new copier template
-3. Use `copier update` instead of `cruft update` for future updates
+📖 **[Read the complete Migration Guide](MIGRATION_GUIDE.md)** for detailed instructions.
+
+**Quick Migration Steps:**
+1. Install copier: `pip install copier>=9.4.0`
+2. Remove `.cruft.json` from your project
+3. Run `copier update --trust` to update using the new copier template
+4. Use `copier update` instead of `cruft update` for future updates
+
+**Benefits after migration:**
+- ✨ No more templated Python files (better IDE support)
+- ✨ Modern tooling (uv, justfile, updated workflows)
+- ✨ Multi-transform architecture ready
+- ✨ AI integration with Dragon AI Agent
 
 ## Getting Started
 

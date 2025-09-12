@@ -124,11 +124,34 @@ gh-invite-the-dragon:
 # Migration helper for cruft users
 _migrate_from_cruft:
   #!/usr/bin/env bash
+  set -euo pipefail
+  
+  echo "🚀 Migrating from cruft to copier..."
+  
+  # Remove cruft configuration
   if [ -f .cruft.json ]; then
-    echo "Migrating from cruft to copier..."
+    echo "✅ Removing .cruft.json"
     rm .cruft.json
-    echo "Removed .cruft.json - use 'copier update' instead of 'cruft update'"
   fi
+  
+  # Check for old Makefile
+  if [ -f Makefile ]; then
+    echo "ℹ️  Found old Makefile - consider reviewing custom rules"
+    echo "   Add custom rules to project.justfile instead"
+  fi
+  
+  # Inform about command changes
+  echo ""
+  echo "📝 Command Changes:"
+  echo "   make install  → just install"
+  echo "   make test     → just test" 
+  echo "   make download → just download"
+  echo "   make run      → just transform"
+  echo "   cruft update  → copier update"
+  echo ""
+  echo "✨ Migration complete!"
+  echo "   Try: just install && just test"
+  echo "   See MIGRATION_FROM_CRUFT.md for details"
 
 # ============== Include project-specific recipes ==============
 
