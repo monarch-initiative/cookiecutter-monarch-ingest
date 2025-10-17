@@ -17,5 +17,5 @@ run: download transform
 # Check ingest configuration files
 check-config:
   uv run python -c "import yaml; yaml.safe_load(open('src/{{project_slug}}/download.yaml')); print('download.yaml is valid')"
-  uv run python -c "import yaml; yaml.safe_load(open('src/{{project_slug}}/transform.yaml')); print('transform.yaml is valid')"
   uv run python -c "import yaml; yaml.safe_load(open('src/{{project_slug}}/metadata.yaml')); print('metadata.yaml is valid')"
+  uv run python -c "import yaml; from pydantic import TypeAdapter; from koza.model.koza import KozaConfig; TypeAdapter(KozaConfig).validate_python(yaml.safe_load(open('src/{{project_slug}}/transform.yaml'))); print('transform.yaml is valid')"
