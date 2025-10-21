@@ -62,8 +62,8 @@ transform_record = discover_transform_module()
 class MockWriter(KozaWriter):
     """Mock writer for testing that captures written entities."""
     
-    def __init__(self):
-        self.items = []
+    def __init__(self) -> None:
+        self.items: List[Any] = []
 
     def write(self, entities: List[Any]) -> None:
         self.items += entities
