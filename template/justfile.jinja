@@ -30,9 +30,9 @@ install:
   uv sync --group dev
 
 # Update project template
-[group('project management')]  
+[group('project management')]
 update:
-  copier update --trust --skip-answered
+  uvx --with jinja2-time copier update --trust --skip-answered
 
 # Run all tests
 [group('ingest development')]
