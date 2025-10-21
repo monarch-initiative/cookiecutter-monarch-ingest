@@ -36,7 +36,7 @@ update:
 
 # Run all tests
 [group('ingest development')]
-test: pytest mypy format
+test: pytest mypy lint
 
 test-full: test pytest-integration
 
@@ -53,8 +53,14 @@ doctest:
 mypy:
   uv run mypy src tests
 
-format:
+# Check code for issues (report only)
+lint:
 	uv run ruff check .
+
+# Auto-fix code formatting and style issues
+format:
+	uv run ruff format .
+	uv run ruff check --fix .
 
 # Download data for ingest
 [group('ingest operations')]
