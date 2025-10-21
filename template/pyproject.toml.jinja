@@ -24,6 +24,7 @@ dependencies = [
   "duckdb>=0.10.2",
   "loguru",
   "click>=8.1.0,<8.2.0",
+  "rich>=13.0.0",
 ]
 
 [dependency-groups]
@@ -93,6 +94,8 @@ ignore = [
     "D211", # `no-blank-line-before-class`
     "D212", # `multi-line-summary-first-line`
     "D203", # `blank-line-before-docstring`
+    "D400", # `first-line-should-end-with-period`
+    "D415", # `first-line-should-end-with-period-question-or-exclamation`
     "F541", # f-strings with no placeholders
     "S101", # Use of assert detected
 ]
