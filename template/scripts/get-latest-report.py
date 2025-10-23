@@ -34,8 +34,8 @@ def get_project_repo_info():
                 parts = repo_url.rstrip('/').split('/')
                 if len(parts) >= 2:
                     return parts[-2], parts[-1]
-    except Exception:
-        pass
+    except Exception:  # noqa: S110
+        pass  # Fallback to directory-based detection below
     
     # Fallback: try to guess from directory structure
     project_root = Path(__file__).parent.parent
@@ -55,7 +55,7 @@ def main():
     print(f"Fetching latest release from: {url}")
     
     # Get the latest release from the GitHub API
-    response = requests.get(url)
+    response = requests.get(url, timeout=30)
     if response.status_code != 200:
         raise Exception(
             f"\n\tFailed to get latest release from {url}\n\tStatus: {response.status_code} - {response.text}"
@@ -80,7 +80,7 @@ def main():
     # Download the reports
     for fn, url in reports.items():
         print(f"Downloading {fn}...")
-        response = requests.get(url)
+        response = requests.get(url, timeout=30)
         output_fn = "_".join(fn.split("_")[-2:])
         output_path = docs_dir / output_fn
         with open(output_path, "wb") as f:

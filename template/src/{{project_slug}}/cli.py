@@ -28,8 +28,8 @@ def get_project_info() -> Tuple[str, str]:
                 name = config.get('project', {}).get('name', 'data-ingest')
                 description = config.get('project', {}).get('description', 'Data ingest project')
                 return name, description
-    except Exception:
-        pass
+    except Exception:  # noqa: S110
+        pass  # Fallback to package metadata below
     
     try:
         # Fallback to package metadata
@@ -95,7 +95,7 @@ def download(force: bool = typer.Option(False, help="Force download of data, eve
 def transform(
     output_dir: str = typer.Option("output", help="Output directory for transformed data"),
     row_limit: int = typer.Option(0, help="Number of rows to process (0 = all)"),
-    output_format: OutputFormat = typer.Option(OutputFormat.tsv, help="Output format"),
+    output_format: OutputFormat = typer.Option(OutputFormat.tsv, help="Output format"),  # noqa: B008
     show_progress: bool = typer.Option(False, help="Display progress of transform"),
     quiet: bool = typer.Option(False, help="Disable log output"),
     transform_name: Optional[str] = typer.Option(None, help="Specific transform to run (for multi-transform projects)"),

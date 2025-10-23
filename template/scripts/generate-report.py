@@ -46,8 +46,8 @@ def generate_nodes_report(ingest_name: str, nodes_file: Path) -> None:
         return
     
     output_file = nodes_file.parent / f"{ingest_name}_nodes_report.tsv"
-    
-    query = f"""
+
+    query = f"""  # noqa: S608
     SELECT category, split_part(id, ':', 1) as prefix, count(*)
     FROM '{nodes_file}'
     GROUP BY all
@@ -68,8 +68,8 @@ def generate_edges_report(ingest_name: str, edges_file: Path) -> None:
         return
     
     output_file = edges_file.parent / f"{ingest_name}_edges_report.tsv"
-    
-    query = f"""
+
+    query = f"""  # noqa: S608
     SELECT category, split_part(subject, ':', 1) as subject_prefix, predicate,
     split_part(object, ':', 1) as object_prefix, count(*)
     FROM '{edges_file}'

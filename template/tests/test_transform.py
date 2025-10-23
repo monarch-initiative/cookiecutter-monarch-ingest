@@ -52,7 +52,7 @@ def discover_transform_module() -> Any:
         transform_module = __import__(f"{project_name}.transform", fromlist=["transform_record"])
         return transform_module.transform_record
     except ImportError as e:
-        raise ImportError(f"Could not import transform_record from {project_name}.transform: {e}")
+        raise ImportError(f"Could not import transform_record from {project_name}.transform: {e}") from e
 
 
 # Discover the transform function dynamically
@@ -61,8 +61,8 @@ transform_record = discover_transform_module()
 
 class MockWriter(KozaWriter):
     """Mock writer for testing that captures written entities."""
-    
-    def __init__(self) -> None:
+
+    def __init__(self) -> None:  # noqa: D107
         self.items: List[Any] = []
 
     def write(self, entities: List[Any]) -> None:
