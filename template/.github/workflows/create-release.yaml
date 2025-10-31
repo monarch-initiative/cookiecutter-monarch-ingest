@@ -1,0 +1,59 @@
+### This workflow can be run manually from Actions tab in your repository by selecting the "Create Release" workflow.
+### When your project is ready for releases, you should:
+###   - Uncomment the `schedule` section to run this workflow automatically on a schedule.
+###     - As written, this workflow will run every Sunday at midnight UTC.
+###   - Remove the `draft: true` line from the `Create Release` step to publish the release immediately.
+# TODO: QC/Validation (ex. 0 rows)
+
+name: Create Release
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '0 0 * * 0'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --group dev
+
+      - name: Run tests
+        run: uv run just test
+
+      - name: Download data
+        run: uv run just download
+
+      - name: Run transform
+        run: |
+          uv run just transform
+          uv run python scripts/generate-rdf.py
+
+      - name: Get date for release tag
+        run: echo "DATE=$(date +%Y-%m-%d)" >> $GITHUB_ENV
+
+      # Further customization for this action is available. See:
+      # https://github.com/softprops/action-gh-release/?tab=readme-ov-file#-customizing
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.DATE }}
+          files: |
+            output/*
+          generate_release_notes: true
+          draft: true
