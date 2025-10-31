@@ -1,0 +1,152 @@
+# === Questions to answer when generating a project from this template. ===
+# https://copier.readthedocs.io/en/stable/configuring/#advanced-prompt-formatting
+
+project_name:
+  type: str
+  help: What is your project name?
+  default: monarch-ingest-template
+
+project_slug:
+  type: str
+  help: A slug of the name. Must be a valid and unused Python package name.
+  default: >-
+    {% from pathjoin('includes', 'slugify.jinja') import slugify -%}
+    {{ slugify(project_name) }}
+  validator: >-
+    {% if not (project_slug | regex_search('^[a-z][_a-z0-9\-]+$',
+       ignorecase=False)) %}
+    project_slug must start with a lowercase letter, followed by lowercase
+    letters, digits, dashes or underscores.
+    {% endif %}
+
+project_description:
+  help: A short description of the project
+  type: str
+  default: A Monarch Initiative data ingest project.
+
+email:
+  help: Email address
+  type: str
+  default: info@monarchinitiative.org
+
+full_name:
+  help: Developer full name
+  type: str
+  default: Monarch Initiative
+
+github_org:
+  help: Github user or organisation name
+  type: str
+  default: monarch-initiative
+
+license:
+  help: Which license do you want for your project?
+  type: str
+  choices:
+    - MIT
+    - BSD-3-Clause
+    - Apache-2.0
+    - MPL-2.0
+    - LGPL-3.0-only
+    - GPL-3.0-only
+  default: BSD-3-Clause
+
+copyright_year:
+  help: The year of the first release
+  type: str
+  default: "{% now 'utc', '%Y' %}"
+
+author:
+  help: The author of the schema in the format "Full Name <email>"
+  type: str
+  default: "{{ full_name }} <{{ email }}>"
+  when: false  # Make it a computed value. Neither ask for it nor store it.
+
+github_handle:
+  help: github username of the author
+  type: str
+  default: "{{ github_org }}"
+
+# Ingest-specific configuration
+ingest_source:
+  help: Data source (e.g., alliance, flybase, hpoa)
+  type: str
+  default: data_source
+
+ingest_type:
+  help: Type of ingest (e.g., gene, disease_to_phenotype, disease_associations)
+  type: str
+  default: associations
+
+ingest_name:
+  help: Combined ingest identifier
+  type: str
+  default: "{{ ingest_source }}_{{ ingest_type }}"
+  when: false  # Computed value
+
+min_python_version:
+  help: Minimum Python version
+  type: str
+  default: "3.10"
+
+gh_action_docs_preview:
+  help: |
+    Use GitHub actions for a documentation preview in pull requests?
+  type: bool
+  default: true
+
+# === copier configuration options ===
+# https://copier.readthedocs.io/en/stable/configuring/#available-settings
+
+_subdirectory: template
+_min_copier_version: "9.4.0"
+_jinja_extensions:
+  - jinja2_time.TimeExtension
+_exclude:
+  # Files or dirs in template/ that should not be copied to the project
+  - "copier.yaml"
+  - "copier.yml"
+  - "~*"
+  - "*.py[co]"
+  - "__pycache__"
+  - ".git"
+
+_skip_if_exists:
+  # Files or dirs to not overwrite/update if they already exist in the project
+  - LICENSE
+  - README.md
+  - src/{{ project_slug }}/download.yaml
+  - src/{{ project_slug }}/transform.yaml
+  - src/{{ project_slug }}/metadata.yaml
+
+_message_after_copy: |
+
+  🎉 MONARCH INGEST PROJECT CREATION COMPLETE 🎉
+
+  📁 Project created: {{ project_name }}
+  
+  🚀 Next steps:
+  1. cd {{ project_slug }}
+  2. just setup    # Initialize and install dependencies
+  3. just test     # Verify everything works
+  
+  📝 Configure your ingest:
+  - src/{{ project_slug }}/download.yaml    # Data sources
+  - src/{{ project_slug }}/transform.yaml   # Transformation config  
+  - src/{{ project_slug }}/transform.py     # Transform logic
+  - src/{{ project_slug }}/metadata.yaml    # Project metadata
+  
+  📚 Documentation:
+  - README.md           # Project overview
+  - CLAUDE.md           # AI assistant instructions
+  - docs/              # Additional documentation
+  
+  🔄 Future updates: copier update (not cruft update!)
+  
+  Happy ingesting! 🧬
+
+_migrations:
+  # Migration from cruft to copier
+  - version: v1.0.0
+    command: just _migrate_from_cruft
+    when: "{{ _stage == 'after' }}"

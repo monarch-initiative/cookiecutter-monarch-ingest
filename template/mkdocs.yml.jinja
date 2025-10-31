@@ -1,0 +1,47 @@
+site_name: {{project_name}}
+site_description: {{project_description}}
+site_author: {{full_name}}
+site_url: https://{{github_org}}.github.io/{{project_slug}}
+repo_url: https://github.com/{{github_org}}/{{project_slug}}
+repo_name: {{github_org}}/{{project_slug}}
+
+nav:
+  - Home: index.md
+  - Data Sources: sources.md
+  - Transform: transform.md
+  - API Documentation: api.md
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+  - macros
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - toc:
+      permalink: true

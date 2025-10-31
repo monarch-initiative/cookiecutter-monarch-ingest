@@ -1,0 +1,114 @@
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[project]
+name = "{{project_slug}}"
+description = "{{project_description}}"
+authors = [
+  {name = "{{full_name}}", email = "{{email}}"},
+]
+license = "{{license}}"
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">={{min_python_version}},<4.0"
+dynamic = ["version"]
+
+dependencies = [
+  "typer >= 0.9.0",
+  "importlib-metadata>=4.8.0",
+  "koza>=2.0.0",
+  "kghub-downloader>=0.3.11",
+  "kgx>=2.4.0",
+  "biolink-model>=4.2.0",
+  "duckdb>=0.10.2",
+  "loguru",
+  "click>=8.1.0,<8.2.0",
+  "rich>=13.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.1.1",
+    "mkdocs>=1.4",
+    "mkdocstrings[python]>=0.26.2",
+    "mkdocs-material>=9.5",
+    "mkdocs-macros-plugin",
+    "mypy>=1.17.1",
+    "ruff>=0.4.8",
+    "linkml>=1.9.3",
+]
+
+[project.scripts]
+{{project_slug}} = "{{project_slug}}.cli:app"
+
+# See https://hatch.pypa.io/latest/config/build/#file-selection for how to
+# explicitly include files other than default into the build distributions.
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+# Ref.: https://github.com/ninoseki/uv-dynamic-versioning/
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "pep440"
+fallback-version = "0.0.0"
+
+# Ref.: https://docs.pytest.org/en/stable/reference/reference.html#configuration-options
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+# Ref.: https://github.com/codespell-project/codespell
+[tool.codespell]
+skip = [
+  "LICENSE",
+  "pyproject.toml", 
+  "uv.lock",
+  "src/{{project_slug}}/download.yaml",
+  "src/{{project_slug}}/transform.yaml",
+  "src/{{project_slug}}/metadata.yaml",
+]
+quiet-level = 3
+
+# Ref.: https://github.com/crate-ci/typos (spell checker)
+[tool.typos.files]
+extend-exclude = [
+  "LICENSE",
+  "uv.lock",
+  "pyproject.toml",
+  "src/{{project_slug}}/download.yaml",
+  "src/{{project_slug}}/transform.yaml", 
+  "src/{{project_slug}}/metadata.yaml",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+ignore = [
+    "D100", # `missing-module-docstring`
+    "D101", # `missing-function-docstring`
+    "D102", # `missing-method-docstring`
+    "D103", # `missing-class-docstring`
+    "D211", # `no-blank-line-before-class`
+    "D212", # `multi-line-summary-first-line`
+    "D203", # `blank-line-before-docstring`
+    "D400", # `first-line-should-end-with-period`
+    "D401", # `first-line-should-be-in-imperative-mood`
+    "D415", # `first-line-should-end-with-period-question-or-exclamation`
+    "F541", # f-strings with no placeholders
+    "S101", # Use of assert detected
+]
+select = [
+    "B", # bugbear
+    "D", # pydocstyle
+    "E", # pycodestyle errors
+    "F", # Pyflakes
+    "I", # isort
+    "S", # flake8-bandit
+    "W", # Warning
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
