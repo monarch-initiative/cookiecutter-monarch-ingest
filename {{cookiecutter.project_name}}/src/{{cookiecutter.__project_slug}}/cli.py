@@ -6,7 +6,8 @@ from pathlib import Path
 from kghub_downloader.download_utils import download_from_yaml
 from kghub_downloader.model import DownloadOptions
 
-from koza.cli_utils import transform_source
+from koza.runner import KozaRunner
+from koza.model.formats import OutputFormat
 import typer
 
 app = typer.Typer()
@@ -29,27 +30,30 @@ def download(force: bool = typer.Option(False, help="Force download of data, eve
     typer.echo("Downloading data for {{cookiecutter.project_name}}...")
     download_config = Path(__file__).parent / "download.yaml"
     download_options = DownloadOptions()
-    download_options.ignore_cache = True 
+    download_options.ignore_cache = True
     download_from_yaml(yaml_file=download_config, output_dir=".", download_options=download_options)
 
 
 @app.command()
 def transform(
     output_dir: str = typer.Option("output", help="Output directory for transformed data"),
-    row_limit: int = typer.Option(None, help="Number of rows to process"),
-    verbose: int = typer.Option(False, help="Whether to be verbose"),
+    row_limit: int = typer.Option(0, help="Number of rows to process (0 = all)"),
+    output_format: OutputFormat = typer.Option(OutputFormat.tsv, help="Output format"),
+    show_progress: bool = typer.Option(False, help="Display progress bar"),
 ):
     """Run the Koza transform for {{cookiecutter.project_name}}."""
     typer.echo("Transforming data for {{cookiecutter.project_name}}...")
-    transform_code = Path(__file__).parent / "transform.yaml"
-    transform_source(
-        source=transform_code,
+    transform_config = Path(__file__).parent / "transform.yaml"
+
+    config, runner = KozaRunner.from_config_file(
+        str(transform_config),
         output_dir=output_dir,
-        output_format="tsv",
+        output_format=output_format,
         row_limit=row_limit,
-        verbose=verbose,
+        show_progress=show_progress,
     )
-    
+    runner.run()
+
 
 if __name__ == "__main__":
     app()
